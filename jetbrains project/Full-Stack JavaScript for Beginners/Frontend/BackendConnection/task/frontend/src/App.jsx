@@ -2,16 +2,10 @@ import {Routes, Route, Navigate} from 'react-router-dom';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Chat from './pages/Chat';
-import { useState, useEffect } from "react";
+import {useState} from "react";
 
 function App() {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
-
-    useEffect(() => {
-        const token = localStorage.getItem('token');
-        if (token)
-            setIsAuthenticated(true);
-    }, []);
 
     return (
         <div className="app">

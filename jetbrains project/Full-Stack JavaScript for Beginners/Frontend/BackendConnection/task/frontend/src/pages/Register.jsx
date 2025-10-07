@@ -10,7 +10,7 @@ function Register({onLogin}) {
     });
 
     const handleChange = (e) => {
-        const { name, value } = e.target;
+        const {name, value} = e.target;
         setFormData(prev => ({
             ...prev,
             [name]: value
@@ -27,16 +27,12 @@ function Register({onLogin}) {
         }
 
         try {
-            const response = awai) {
-            setError('Passwords do not match');
-            return;
-        }
+            const response = await axios.post('/api/auth/register', {
+                username: formData.username,
+                password: formData.password,
+            })
 
-        try {
-            ormData.password
-            });
-
-            localStorage.setItem('token', resp
+            localStorage.setItem('token', response.data.token)
 
             onLogin();
         } catch (err) {
@@ -45,49 +41,49 @@ function Register({onLogin}) {
     };
 
     return (<div className="container">
-            <div className="login-form">
-                <h2>Register for Chat</h2>
-                {error && <div className="error">{error}</div>}
-                <form onSubmit={handleSubmit}>
-                    <div className="form-group">
-                        <label htmlFor="username">Username</label>
-                        <input
-                            type="text"
-                            id="username"
-                            name="username"
-                                         onChange={handleChange}
-                            required
-                            value={formData.username}
-                            minLength="3"
-                        />
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="password">Password</label>
-                        <input
-                            type="password"
-                            id="password"
-                            name="password"
-                            onChange={handleChange}
-                            required
-                            value={formData.password}
-                            minLength="6"
-                        />
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="confirmPassword">Confirm Password</label>
-                        <input
-                            type="password"
-                            id="confirmPassword"
-                            name="confirmPassword"
-                            onChange={handleChange}
-                            required
-                            value={formData.confirmPassword}
-                        />
-                    </div>
-                    <button type="submit"> Register </button>
-                </form>
-            </div>
-        </div>);
+        <div className="login-form">
+            <h2>Register for Chat</h2>
+            {error && <div className="error">{error}</div>}
+            <form onSubmit={handleSubmit}>
+                <div className="form-group">
+                    <label htmlFor="username">Username</label>
+                    <input
+                        type="text"
+                        id="username"
+                        name="username"
+                        onChange={handleChange}
+                        required
+                        value={formData.username}
+                        minLength="3"
+                    />
+                </div>
+                <div className="form-group">
+                    <label htmlFor="password">Password</label>
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        onChange={handleChange}
+                        required
+                        value={formData.password}
+                        minLength="6"
+                    />
+                </div>
+                <div className="form-group">
+                    <label htmlFor="confirmPassword">Confirm Password</label>
+                    <input
+                        type="password"
+                        id="confirmPassword"
+                        name="confirmPassword"
+                        onChange={handleChange}
+                        required
+                        value={formData.confirmPassword}
+                    />
+                </div>
+                <button type="submit"> Register</button>
+            </form>
+        </div>
+    </div>);
 }
 
 export default Register;

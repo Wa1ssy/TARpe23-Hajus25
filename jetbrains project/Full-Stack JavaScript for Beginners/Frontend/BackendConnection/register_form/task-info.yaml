@@ -12,7 +12,7 @@ files:
           offset: 617
         initialized_from_dependency: false
         encrypted_possible_answer: YIVDR67a2LxzpRxFBD8VTEFnn0NxRE8I+2XnGCUi7efJIe99mQvxP+OYo1yqYZOa
-        selected: false
+        selected: true
         status: Solved
         student_answer: |-
           ar the error message
